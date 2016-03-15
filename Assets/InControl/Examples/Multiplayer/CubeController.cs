@@ -34,8 +34,8 @@ namespace MultiplayerExample
 
 		void UpdateCubeWithInputDevice( InputDevice inputDevice )
 		{
-			// Set object material color based on which action is pressed.
-			if (inputDevice.Action1)
+            // Set object material color based on which action is pressed.
+            if (inputDevice.Action1)
 			{
 				cubeRenderer.material.color = Color.green;
 			}
@@ -58,9 +58,12 @@ namespace MultiplayerExample
 			{
 				cubeRenderer.material.color = Color.white;
 			}
-			
-			// Rotate target object with both sticks and d-pad.
-			transform.Rotate( Vector3.down, 500.0f * Time.deltaTime * inputDevice.Direction.X, Space.World );
+
+            // Set vibration according to triggers
+            inputDevice.Vibrate(inputDevice.LeftTrigger, inputDevice.RightTrigger);
+
+            // Rotate target object with both sticks and d-pad.
+            transform.Rotate( Vector3.down, 500.0f * Time.deltaTime * inputDevice.Direction.X, Space.World );
 			transform.Rotate( Vector3.right, 500.0f * Time.deltaTime * inputDevice.Direction.Y, Space.World );
 			transform.Rotate( Vector3.down, 500.0f * Time.deltaTime * inputDevice.RightStickX, Space.World );
 			transform.Rotate( Vector3.right, 500.0f * Time.deltaTime * inputDevice.RightStickY, Space.World );
