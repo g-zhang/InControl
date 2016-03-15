@@ -54,7 +54,17 @@ namespace MultiplayerExample
 			{
 				cubeRenderer.material.color = Color.yellow;
 			}
-			else
+            else
+            if (inputDevice.LeftBumper)
+            {
+                cubeRenderer.material.color = Color.magenta;
+            }
+            else
+            if (inputDevice.RightBumper)
+            {
+                cubeRenderer.material.color = Color.cyan;
+            }
+            else
 			{
 				cubeRenderer.material.color = Color.white;
 			}
