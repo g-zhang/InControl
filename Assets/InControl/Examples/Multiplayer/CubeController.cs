@@ -65,9 +65,21 @@ namespace MultiplayerExample
                 cubeRenderer.material.color = Color.cyan;
             }
             else
+            if (inputDevice.GetControl(InputControlType.Start))
+            {
+                cubeRenderer.material.color = Color.black;
+            }
+            else
+            if (inputDevice.GetControl(InputControlType.Back))
+            {
+                cubeRenderer.material.color = Color.gray;
+            }
+            else
 			{
 				cubeRenderer.material.color = Color.white;
 			}
+
+            
 
             // Set vibration according to triggers
             inputDevice.Vibrate(inputDevice.LeftTrigger, inputDevice.RightTrigger);
